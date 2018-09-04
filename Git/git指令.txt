@@ -1,0 +1,62 @@
+﻿设置git用户名
+git config --global user.name "(填用户名)"
+设置git邮箱
+git config --global user.email "(填邮箱)"
+
+创建本地仓库
+git init
+
+创建远程仓库关联到本地
+git clone （远程仓库地址） 文件夹名字（可有可无）
+
+---------------------------------------------
+在本地仓库中关联远程仓库                        |
+git remote add origin (远程仓库地址)        |
+			               |
+第一次提交到远程仓库                               |
+git push -u origin 	master(分支名)         |
+---------------------------------------------
+
+提交暂存区
+git add （需要提交的文件名 or .<点>  所有文件）
+
+提交本地仓库 
+git commit -m "提交记录"
+
+拉取远程仓库
+git pull
+
+推送远程仓库
+git push
+
+查看当前状态
+git status
+
+创建分支
+git branch (分支名)
+
+切换分支
+git checkout （分支名）
+
+查看当前分支
+git branch 
+
+合并分支 （将当前的分支与需要合并分支进行合并）
+git merge (需要合并的分支名)
+
+删除分支
+git branch -d （分支名）
+
+储藏所有修改但没提交的代码
+git stash -a
+
+恢复储藏的代码
+git stash pop
+
+删除储藏的代码
+git stash clear （删除所有）
+
+查看所有储藏列表
+git stash list
+
+
