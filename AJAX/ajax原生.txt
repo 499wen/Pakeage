@@ -1,0 +1,33 @@
+//步骤一:创建异步对象
+    var ajax = new XMLHttpRequest();
+
+//步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端
+        ajax.open('get', url, true);
+
+
+//步骤三:发送请求
+        ajax.send();
+
+
+//步骤四:注册事件 onreadystatechange 状态改变就会调用
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState == 4 && ajax.status == 200) {
+                    //步骤五 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
+                    // 　　　　console.log(ajax.responseText);//输入相应的内容
+                    var data = eval('(' + ajax.responseText + ')'); // 将服务器传回来的 string 格式转化为 JSON 格式
+                    var html = '';
+                    console.log(data.length);
+                    if(data.length == 0){
+                        return ;
+                    }
+                    for (v of data) {
+
+                        html += `<option value="` + v['id'] + `" id="cat_` + v['id'] + `">` + v['cat_name'] + `</option>`;
+                    }
+                    //  将内容写入页面 
+                    _this.innerHTML = html;
+                    console.log(html)
+                    // 将第二个select 显示出来
+                    _this.style.visibility = "visible";
+                }
+            }
