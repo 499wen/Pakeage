@@ -1,0 +1,32 @@
+官方文档
+https://doc.quickapp.cn/
+
+什么是快应用
+
+类似 微信小程序
+但比微信小程序 高级一点吧
+
+更接近原生 APP 的应用程序
+
+
+
+1. 创建项目
+hap init <ProjectName>
+
+2. 安装依赖
+npm install
+
+3. 编译项目
+npm run build   /  npm run watch  自动编译
+
+4. 安装rpk包
+npm run server   /  npm run server -- --port 8080
+扫码安装 / 或 复制到手机
+
+
+
+官方 IDE 开发工具 
+
+https://bbs.quickapp.cn/forum.php?mod=viewthread&tid=1052&fromuid=139
+
+1. 支持 USB 调试

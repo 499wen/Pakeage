@@ -1,0 +1,19 @@
+1.  Common/js/dada.js
+
+路由 manifest.json
+
+路由数据 ？ 区分大小写  且必须和 manifest 的 page 一样？？？
+
+import {pageList} from '../Common/js/data'   
+
+
+框架指令
+
+for
+for={{data}}  {{$idx}}  + {{$item.name}}    关键字
+
+for="{{(k,v) in pageList}}    {{k}} +  {{v.name}}    {{$idx}}  失效
+
+show  显示 DOM 结构  (隐藏了)    show="{{k%2==0}}
+
+if/elif/else   条件渲染  (控制是否增删DOM结构)

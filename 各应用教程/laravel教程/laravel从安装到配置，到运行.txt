@@ -1,0 +1,79 @@
+一，
+1.安装composer
+
+一路安装 直接下一步
+
+2.
+
+使用国内镜像
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+3.
+使用 composer 安装 laravel 安装器： 
+
+composer global require "laravel/installer" 
+
+4.
+
+安装好之后，可以使用 laravel 指令创建新的项目： laravel new 项目目录名称 
+
+laravel new 直接不写项目名在当前文件夹 生成
+
+5.
+
+。如果想要安装其他版本，比如：5.5 可以执行以下指令：
+
+composer 的 命令
+
+composer create-project --prefer-dist laravel/laravel blog 5.6.*
+
+
+二,配置（可能需要配置的文件）
+
+-->> \config\app.php
+时区
+'timezone' => 'PRC',
+--
+下载语言包
+
+composer require caouecs/laravel-lang
+
+复制语言包到 相应 位置 
+语言
+'locale' => 'zh-CN',
+ 'fallback_locale' => 'zh-CN',
+
+-->> \config\database.php
+
+//设置数据库 表 前缀
+'prefix' => 'sns_',
+
+-->> config\filesystems.php  //配置文件存储
+
+'images' => [
+            'driver' => 'local',
+            'root' => public_path('images'),
+            'url' => env('APP_URL').'/images',
+            'visibility' => 'public',
+        ],
+
+
+-->>常配置 \sns\.env  
+
+APP_URL=http://localhost:8888
+FILESYSTEM_DRIVER=uploads
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel-sns
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+其他使用
+include('生成模型，控制器，迁移文件的命令为什么？如何配置数据库的，详细描述.txt')
+
+
+
+

@@ -1,0 +1,6 @@
+
+1.  微信 支付宝 支付
+composer require yansongda/pay
+https://packagist.org/packages/yansongda/pay
+
+注意:  打开  ssl  拓展 ，  php  版本 至少  7.2 +

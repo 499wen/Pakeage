@@ -1,0 +1,57 @@
+中间件
+
+访问路由前的 执行 中间件，过滤 如 判断权限，执行路由的权限
+
+访问后
+
+需求
+1.必须登陆
+
+
+
+1. 创建
+php artisan make:middleware CheckLogin(类名) //中间件  
+
+2.编写 中间件 代码
+
+3.注册中间件(全局，组，指定)
+
+\app\Http\Kernel.php
+->
+protected $routeMiddleware
+'login' => \App\Http\Middleware\CheckLogin::class,
+
+
+4.引用中间件 
+->middleware('login')
+->middleware(['after','before'])
+
+
+
+
+
+应用
+1.登陆
+2.权限
+
+
+注册 中间件 类型
+
+全局 中间件
+
+路由组 中间件
+	web &&  api 
+
+指定路由 中间件
+
+
+
+前置中间件
+
+后置中间件
+
+
+Route::middleware(['login'])->group(function(){
+
+})
+

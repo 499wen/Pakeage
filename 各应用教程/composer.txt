@@ -1,0 +1,19 @@
+什么是 composer
+Composer是 PHP 世界里用于管理项目依赖的工具。
+
+安装
+https://pkg.phpcomposer.com/
+
+1.  设置中国镜像 非全局
+composer config repo.packagist composer https://packagist.phpcomposer.com
+
+2. 包站
+https://packagist.org/
+
+3. 使用
+
+引入 composer 的自动加载。
+require_once 'vendor/autoload.php';
+
+对应 类的 命名空间
+use Gregwar\Captcha\CaptchaBuilder;

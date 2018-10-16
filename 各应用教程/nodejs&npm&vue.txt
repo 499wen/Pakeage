@@ -1,0 +1,54 @@
+1.
+http://nodejs.cn/download/  下载安装 nodejs
+https://www.jianshu.com/p/58072cdc8c29 // 那些坑
+http://www.runoob.com/vue2/vue-install.html  那么些网址
+https://www.cnblogs.com/zhaowy/p/8513070.html ##
+https://blog.csdn.net/sinat_29412671/article/details/53690658
+http://www.runoob.com/w3cnote/vue2-start-coding.html ## Vue2.0 新手入门 — 从环境搭建到发布
+https://zhidao.baidu.com/question/1672497656063745627.html  ## npm run build
+2.
+检查安装 
+node -v
+npm -v
+
+3.
+使用 国内镜像
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+4.
+#升级 npm
+cnpm install npm -g
+
+5.
+https://registry.npmjs.org/ 我是这个
+注意用 管理员  打开命令行
+
+1.
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+2.
+cnpm install -g vue-cli
+
+3.
+vue init webpack Vue-Project（新建项目）
+
+进入项目文件夹后vue init webpack vuedemo新建一个项目
+
+进入项目cd vuedemo
+
+创建项目npm install + cnpm install
+
+运行项目npm run dev
+
+发布项目npm run build
+
+tip:是正常的
+Build complete. Tip: built files are meant to be served over an HTTP server.
+建立完整。提示：构建文件是要在HTTP服务器上服务的。
+
+会编译到 dist 
+
+
+
+
+

@@ -1,0 +1,46 @@
+session.php
+
+// 过期时间
+'lifetime' => env('SESSION_LIFETIME', 120),
+// 关闭浏览器 销毁
+'expire_on_close' => false,
+// 加密与否
+'encrypt' => false,
+// session 位置
+'files' => storage_path('framework/sessions'),
+
+//操作session
+
+使用 session([]);
+$id = session('id');
+$req->session()->get('id');
+
+存session
+
+session([
+
+	'id'=>3,
+'name'=>'tom,
+
+
+])
+
+$req->session()->put('建','值')
+
+
+// 删除
+
+$req->session()->forget('name');
+$req->session()->flush();
+$req->session()->pull('id');
+
+
+
+
+
+
+
+
+
+
+

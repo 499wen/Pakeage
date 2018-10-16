@@ -1,0 +1,41 @@
+什么是less
+Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
+
+Less 可以运行在 Node 或浏览器端。
+
+使用
+
+1.
+浏览器 预编译
+<link rel="stylesheet/less" type="text/css" href="styles.less" />
+<script src="less.js" type="text/javascript"></script>
+
+不推荐，存在许多 不兼容
+
+2. 
+vs code  easyless 插件
+
+3. 命令行
+
+$ npm install -g less
+
+$ lessc styles.less styles.css
+
+一些语法
+
+@import "./test2.less"; // 引入其他 样式
+
+变量
+
+函数
+
+嵌套
+
+继承
+ &:extend(.aa);// 继承要 写全选择器
+
+
+
+其他
+css 转 less
+https://www.css2less.net/

@@ -1,0 +1,16 @@
+
+1. JWT 是什么  
+https://www.jianshu.com/p/af8360b83a9f
+json web token 
+
+
+前后端分离项目 可能 不能使用 cookie-session 
+所以就有了 jwt 
+
+理解的话
+jwt 类比 cookie-session
+
+cookie-session：  每次请求 携带cookie => sessionid 
+
+jwt ： jwt  原理  ->  请求 jwt 的  token   每次请求 携带 token 替代 sessionID 
+

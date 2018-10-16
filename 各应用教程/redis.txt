@@ -1,0 +1,18 @@
+
+1. 类似数据库 在内存中 存取数据  提升性能
+2. 使用简单   类似 浏览器的 本地存储
+
+安装 
+
+windows
+
+https://github.com/MicrosoftArchive/redis/releases
+
+安装为系统服务
+redis-server.exe --service-install 配置文件
+
+https://packagist.org/packages/predis/predis
+1. composer require predis/predis
+
+注意 连接 使用 127.0.0.1 
+localhost可能会非常慢

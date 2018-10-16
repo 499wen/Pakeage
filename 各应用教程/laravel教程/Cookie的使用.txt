@@ -1,0 +1,38 @@
+https://blog.csdn.net/sqc157400661/article/details/64922768
+
+
+
+设置 Cookie
+$foreverCookie = Cookie::forever('forever', 'Success'); //永久
+$tempCookie = Cookie::make('temporary', 'Victory', 5);//分钟  
+return Response::make()->withCookie($tempCookie)->withCookie($foreverCookie);
+
+设置数组
+
+$user_info = array('name'=>'good','age'=>12);  
+$user = Cookie::make('user',$user_info,30);  
+return Response::make()->withCookie($user); 
+
+return response('Hello World')->cookie(
+    'name', 'value', $minutes, $path, $domain, $secure, $httpOnly
+);
+
+获取Cookie
+
+$request->cookie('name');
+
+$value = Cookie::get('name');
+
+$temporary = Cookie::get('temporary');
+
+reutrn $temporary;
+
+删除 Cookie
+
+$tempCookie = Cookie::make('temporary', 'Victory', -1);  
+return Response::make()->withCookie($tempCookie);
+
+js 读取 cookie  
+
+打开链接
+

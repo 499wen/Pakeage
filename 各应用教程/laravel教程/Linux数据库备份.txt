@@ -1,0 +1,42 @@
+cd /home
+mkdir sqlback
+cd sqlback
+
+vi bkDatabaseName.sh
+写入:
+①
+#!/bin/bash
+mysqldump -uusername -ppassword DatabaseName > /home/sqlback/DatabaseName_$(date +%Y%m%d_%H%M%S).sql
+②
+#!/bin/bash
+mysqldump -uusername -ppassword DatabaseName | gzip > /home/sqlback/DatabaseName_$(date +%Y%m%d_%H%M%S).sql.gz
+
+注意： 
+把 username 替换为实际的用户名； 
+把 password 替换为实际的密码； 
+把 DatabaseName 替换为实际的数据库名；
+
+
+添加可执行权限：
+chmod 777 bkDatabaseName.sh
+
+添加可执行权限之后先执行一下，看看脚本有没有错误，能不能正常使用；
+
+./bkDatabaseName.sh
+
+5、添加计划任务
+检测或安装 crontab
+
+使用 root 安装
+# yum  install crontab 
+
+添加计划任务
+
+crontab -e 
+
+
+0 2 * * *  /home/sqlbackup/bkDatabaseName.sh
+
+重启crontab：service crond restart
+
+查看定时任务日志：tail -f /var/log/cron

@@ -1,0 +1,12 @@
+php artisan make:migration add_CourseContents --table='course_contents'
+php artisan make:migration add_CourseContents --create='course_contents'
+
+php artisan make:model Models/Interlocution -m
+
+$table->string('bgface')->nullable()->comment('´óÍ·');
+
+
+$table->dropColumn('cover');
+OR
+$table->dropColumn(['bgface','mdface','smface']);
+

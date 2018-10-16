@@ -1,0 +1,14 @@
+1.php artisan serve --port=8000 //启动 PHP内置服务器 php -S localhost -t ./
+
+2.php aritsan make:controller TestController  // 创建 控制器
+
+3.php artisan make:model Models/Ding -m  // 建模 加 建表 迁移文件
+
+4.php artisan make:migration 文件名 --create=''|--table='' //创建 迁移文件  建表 | 加字段 | 改表
+
+5.php artisan migrate   执行迁移
+
+6.
+php artisan make:request RegistRequest // 验证表单数据 自定义 表单 验证类
+
+7.php artisan make:middleware 类名 //中间件

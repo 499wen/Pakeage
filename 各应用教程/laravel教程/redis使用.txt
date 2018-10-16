@@ -1,0 +1,179 @@
+redis的使用
+
+内存 数据库 ？？
+
+用途 实现高并发 处理速度快
+
+官网 只有 Linux 版 但是 windows 开原团队 根据开源码 开发有 windows 版
+
+
+介绍：
+
+1.redis-server.exe :服务器端程序
+2.redis-cli : 客户端程序
+3.redis.windows-service.conf ： 配置文件
+
+1安装服务
+
+服务端程序 --service-install 配置文件
+(拖入控制台)
+redis-server.exe --service-install redis.windows-service.conf
+
+2.卸载服务
+redis-server.exe -service-uninstall
+
+3.打开 服务 开启
+
+运行 services.msc
+
+找到 redis 开启
+
+
+4.连接服务 
+默认本地
+redis-cli.exe   [-h   服务器IP地址   -p   端口号   -a   密码]
+
+
+5.指令
+
+指令	说明
+PING	判断服务器是否启动。
+INFO	查看服务器信息。
+QUIT	退出客户端。
+HELP	查看帮助。
+TIME	返回当前服务器时间戳。
+CLIENT LIST	列出所有连接的客户端。
+COMMAND COUNT	获取指令的数量。
+SHUTDOWN	断开所有连接，并关闭服务器。
+
+切换数据库
+select 数据库编号
+
+
+6.laravel 与 Redis 
+
+Laravel中需要先安装扩展才可以操作 Redis：
+
+composer require predis/predis
+
+
+database.php 配置 redis
+.evn 配置
+
+
+使用
+
+use Illuminate\Support\Facades\Redis;
+
+Redis::ping();
+
+
+实战应用
+
+1.
+Laravel中的SESSION默认是保存在文件中的，为了提高网站的性能，我们可以配置 Laravel 把SESSION数据保存到 Redis中
+session 到 Redis
+缓存数据到 Redis
+
+2.
+
+3.
+我们可以修改 .evn 文件中的 
+SESSION_DRIVER=redis
+CACHE_DIRVWE=redis
+
+
+使用redis
+就是往内存中 插入数据 读出数据
+
+
+
+
+other:
+
+php artisan config:clear
+php artisan serve
+
+
+
+
+
+........字符串 指令。。。。。。。。。。
+
+get 名字	获取一个值
+set 名字 值 [ ex 过期时间秒 ]  	设置一个值
+incr 名字	把值加1，返回加1之后的值。
+decr 名字	把值减1，返回减1之后的值
+incrby 名字 数字	把值加几
+decrby 名字 数字	把值减几
+strlen 	获取字符串长度。
+
+.................list 指令......
+
+LPUSH 键 值	从左侧向列表中添加值。
+LPOP 键	取出列表最左边的值。
+RPUSH 键 值	从右侧向列表中添加值。
+RPOP 键	取出列表最右边的值。
+LRANGE 键 开始位置 结束位置	取出列表中一部分的值。
+llen 键	获取列表的长度
+
+.............set 无序集合......
+
+SADD 键 值1 值2 ...	向集合中添加一个或多个元素。
+SCARD 键	获取集合中元素的个数。
+SDIFF 键1 键2 键3 ...	计算多个集合的差集。
+SINTER 键1 键2 键3 ...	计算多个集合的交集。
+SISMEMBER 键 值	判断一个值是否在一个集合中。
+SMEMBERS 键	返回集合中所有的成员。
+SPOP 键	随机弹出一个元素。
+SREM 键  值1  值2  值3 ...	从集合中移除一个或者多个值。
+
+.......有序 集合 Sorted Set  分值
+
+ZADD 键 分数1 值1 分数2 值2 ...	向有序集合中添加带分数的值。
+ZCARD 键	获取集合中元素的数量。
+ZCOUNT  键  最小分数  最大分数	获取分数在最小和最大分数之间的元素的数量。
+ZINCRBY  键  分值  值	把集合中某个值的分数增加或者减少。
+ZRANGE 键   开始下标   结束下标 [WITHSCORES]	取出开始到结束下标之间的元素并以从小到大的顺序排序。
+ZREVRANGE 键 开始下标 结束下标 [WITHSCORES]	取出开始到结束下标之间的元素并以从大到小的顺序排序。
+ZREM 键 值1 值2 ...	从集合中移除一个或者多个元素。
+ZRANK 键 值	获取一个元素在集合中的正序的排名。
+ZREVRANK 键 值	获取一个元素在集合中的倒序的排名。
+
+..........hash ..........
+
+hset 键名 字段 值	设置一个Hash数据的一个字段。
+hmset 键名 字段1 值1 字段2 值2 ...	同时设置一个Hash数据的多个字段。
+hget 键名 字段	获取一个Hash数据的某一个字段的值。
+hmget 键名 字段1 字段2 ...	获取一个Hash数据的多个字段的值。
+hgetall 键名	获取一个Hash数据所有字段的名和值。
+hkeys 键名	获取一个Hash数据所有字段的名字。
+hlen 键名	获取一个Hash数据所有字段的数量。
+hincrby 键名 字段 数字	把一个Hash数据中的某个字段加上数字。
+hexists 键名 字段	判断一个Hash数据中是否存在一个字段。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

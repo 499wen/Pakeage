@@ -1,0 +1,52 @@
+
+//增加 filesystems.php 的 disks 项
+
+        'uploads' => [
+            'driver' => 'local',
+            'root' => public_path('uploads'),
+            'url' => env('APP_URL').'/uploads',
+            'visibility' => 'public',
+        ],
+
+增加 .env 项
+
+FILESYSTEM_DRIVER=uploads
+
+注意 APP_URL=http://localhost:8888  端口号
+
+------------------------------------------
+
+
+enctype='multipart/form-data'
+
+{{Storage::url('20180515/upfjVx7fYPBFpwNuAg434koUaB7rEGjINVGIc34x.jpeg')}}
+
+// 表单令牌
+{{csrf_field()}}
+
+// 判断 保存
+if ($req->hasFile('logo') && $req->logo->isValid()) {
+            // 获取当前日期
+            $date = date('Ymd');
+            // 移动图片到当前日期目录下，使用配置文件中 images 配置的目录
+            $newImage = $req->logo->store($date, 'uploads'); // 保存 图片
+            // 打印上传之后文件名
+            dd(Storage::url($newImage));
+
+        }
+$oldimage = $req->face->path();//图片临时 路劲
+
+//删除
+Storage::delete('20180515/W651JaftoiAGxZ92oBvU9LdHPlaYjH366agzduwV.jpeg');
+
+OTHER
+
+// 上传 到 指定 配置项 位置
+filesystems.php
+.evn
+
+$newImage = $req->face->store($date,'face');
+Storage::disk('face')->delete($face);
+Storage::disk('face')->url($face);
+
+

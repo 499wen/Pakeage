@@ -1,0 +1,121 @@
+
+什么是 npm 
+:包管理工具
+
+随 nodejs 捆绑
+
+安装
+
+安装 nodejs  
+
+node -v
+npm -v
+检测 成功
+
+
+1.安装包 
+
+npm install 包名  安装 到 当前目录 node_modules
+
+npm install 包 -g  全局 安装  
+: 需要 执行命令行的时候 全局安装  如 less 有 lessc 命令 
+安装 是这需要  全局 安装
+
+2.查看 包
+
+npm list 
+npm list -g --depth 0
+
+3.卸载 包
+
+npm uninstall 包
+npm uninstall 包 -g
+
+
+
+4.初始化
+npm init 手动添加信息
+npm init -y 自动添加信息
+
+
+
+使用临时 镜像 (文件) 推荐
+
+全局修改 镜像
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+检查现在镜像源:
+npm config get registry 
+切换npm镜像源
+npm config set registry https://registry.npm.taobao.org
+
+官方原始镜像
+https://registry.npmjs.org/
+
+
+1，安装
+下载模块 npm install
+
+运行项目npm run dev
+
+发布项目npm run build
+
+
+命令
+
+npm init
+
+# 跳过向导，快速生成 package.json 文件
+# 简写是 -y
+npm init --yes
+
+# 一次性安装 dependencies 中所有的依赖项
+# 简写是 npm i
+npm install
+
+# 安装指定的包，可以简写为 npm i 包名
+# npm 5 以前只下载，不会保存依赖信息，如果需要保存，则需要加上 `--save` 选项
+# npm 5 以后就可以省略 --save 选项了
+npm install 包名
+
+# 一次性安装多个指定包
+npm install 包名 包名 包名 ...
+
+# 安装指定版本的包
+npm install 包名@版本号
+
+# 卸载指定的包
+npm uninstall 包名
+
+# 安装全局包
+npm install --global 包名
+
+# 查看包信息
+npm view 包名
+
+# 查看使用帮助
+npm help
+
+
+1.
+cnpm 
+
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+2.
+vue
+cnpm install -g vue-cli
+
+3.
+nrm
+npm install -g nrm
+
+
+
+
+
+
+
+
+
+
+

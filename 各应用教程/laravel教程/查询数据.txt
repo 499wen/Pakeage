@@ -1,0 +1,103 @@
+->where('title','a') // 条件 且
+
+->where('title','like','%a%')
+
+->where([
+['id','>','2'],
+['title','like','%d%'],
+
+])
+
+->where(function($q){
+
+	$q->where('title','a')
+	  ->where('content','liek','手机')
+
+
+}) // 小括号 查询
+
+->orWhere('title','标题') // 条件 或
+
+->join('users', 'users.id', '=', 'blogs.user_id') //连表 内查询
+
+->orderBy('title','desc|asc')
+->orderByRaw('acscore desc,created_at desc')
+array_merge(,) //合并数组
+
+->select('blogs.*', 'users.email', 'users.name') // 选择 查询
+
+->paginate(3) //分页
+
+->toSql() // 返回 sql 语句
+
+
+链式 分段 查询
+
+$data = Blog::where('id','>','2'); //返回 查询 对象
+
+DB::raw('count(*) n') //特殊语句查询 
+如 指定   你写 什么就是什么 过滤修饰 表不加前缀
+$data->where();//填充 查询条件
+
+
+如果 查询一条数据 是二维数组  用 return json_encode($data);
+return json_decode( json_encode($data)); 转 字符串 再 传对象 
+可解决
+.>>
+toArray()
+
+
+...
+...
+
+
+$data = $data->get();// 查询数据
+
+
+
+关联模型
+
+function user(){
+		// 当前模型(Blog) 属于 User
+	return $this->belongsTo('App\Models\User','user_id');
+
+}
+
+
+Blog::with('user')->find(1); // 一起查出来
+
+不用 with()
+
+return $blog->user ???
+
+可在模板页 用到时
+
+{{$blog->user->name}} // 用到时在查
+
+
+
+
+
+
+
+SNS　项目
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

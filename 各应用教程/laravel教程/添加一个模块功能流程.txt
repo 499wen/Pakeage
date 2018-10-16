@@ -1,0 +1,73 @@
+示例
+添加 评论功能
+
+一丶后端
+
+1.添加 Model && 迁移文件
+php artisan make:model Models\Comment -m  !!
+ 
+2.编写迁移文件 Model 的白名单  关联表  !!
+
+protected $fillable = ['title','content'];
+public $timestamps=false;
+    function user(){
+        // 当前模型(Comment) 属于 User
+        return $this->belongsTo('App\Models\User','user_id');
+    }
+
+迁移文件 的 索引 where
+
+php artisan migrate  !!
+
+
+3.添加控制器 
+php artisan make:controller CommentController
+
+
+4.添加路由
+
+5.添加 验证
+
+php artisan make:request commentRequest
+
+6.添加方法
+use
+
+
+二丶前端
+
+
+
+
+
+
+6. AJAX 模板
+$.ajax({
+	url : "{{Route('zan',$blog->id)}}",
+	type : 'get',
+	// dataType: "json",
+	//contentType : "application/json; charset=utf-8",
+	//data : {id:1},
+	success : function(data){
+		console.log(data);		
+	},error:function(data){
+		console.log(data);
+		alert('格式错误');
+	}
+});
+
+
+
+
+
+其他注意:
+
+if($request->ajax()){
+
+	return response([
+	'errno'=>'1001',
+	'errmsg'=>'必须登陆',
+
+	]);
+}
+

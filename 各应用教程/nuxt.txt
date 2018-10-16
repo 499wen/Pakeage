@@ -1,0 +1,7 @@
+
+1.
+npm install -g vue-cli
+
+2.
+
+vue init nuxt-community/starter-template ÏîÄ¿Ãû³Æ

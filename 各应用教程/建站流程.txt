@@ -1,0 +1,84 @@
+1. ubuntu 16
+2.  sudo apt-get update  -> sudo  apt-get  upgrade
+3. apt-get install git
+4. oneinstack 
+
+wget http://mirrors.linuxeye.com/oneinstack-full.tar.gz
+tar xzf oneinstack-full.tar.gz  
+./install.sh    -- screen -R oneinstack 断网切回到进程窗口
+
+php 7.2  mysql 8.0
+
+HHVM   : n  其他 y
+
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /root/oneinstack/src/memcached-3.0.4/modules
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+
+Build complete.
+Don't forget to run 'make test'.
+
+Installing shared extensions:     /usr/local/php/lib/php/extensions/no-debug-non-zts-20170718/
+~/oneinstack/src ~/oneinstack ~/oneinstack
+PHP memcached module installed successfully!
+~/oneinstack ~/oneinstack
+[tz.zip] found
+[ocp.php] found
+~/oneinstack ~/oneinstack
+####################Congratulations########################
+Total OneinStack Install Time: 32 minutes
+
+Nginx install dir:              /usr/local/nginx
+
+Database install dir:           /usr/local/mysql
+Database data dir:              /data/mysql
+Database user:                  root
+Database password:              123456
+
+PHP install dir:                /usr/local/php
+Opcache Control Panel URL:      http://192.168.1.81/ocp.php
+
+Pure-FTPd install dir:          /usr/local/pureftpd
+Create FTP virtual script:      ./pureftpd_vhost.sh
+
+phpMyAdmin dir:                 /data/wwwroot/default/phpMyAdmin
+phpMyAdmin Control Panel URL:   http://192.168.1.81/phpMyAdmin
+
+redis install dir:              /usr/local/redis
+
+memcached install dir:          /usr/local/memcached
+
+Index URL:                      http://192.168.1.81/
+
+Please restart the server and see if the services start up fine.
+Do you want to restart OS ? [y/n]:
+
+Your domain:                  www.zhedream.com
+Virtualhost conf:             /usr/local/nginx/conf/vhost/www.zhedream.com.conf
+Directory of:                 /data/wwwroot/www.zhedream.com
+Rewrite rule:                 /usr/local/nginx/conf/rewrite/laravel.conf
+
+5. composer 
+cd ~
+php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"  // 卸载 composer php脚本
+php composer-setup.php  // 执行脚本 
+
+Composer (version 1.6.5) successfully installed to: /root/composer.phar
+Use it: php composer.phar
+全局使用 ： 把 composer.phar  改名 移动到 /usr/local/bin/  
+mv composer.phar /usr/local/bin/composer

@@ -1,0 +1,13 @@
+﻿// 常用的 背景图样式格式
+.jdm-header-info {
+  background-image: url('../images/header-message.png');
+  height: 100%;
+  width: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  background-origin: content-box;
+  box-sizing: border-box;
+  padding: 10px;
+  /* position: absolute; */
+}

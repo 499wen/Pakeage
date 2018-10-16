@@ -1,0 +1,62 @@
+PHPMailer是一个全功能的PHP电子邮件创建和传输类
+https://packagist.org/packages/phpmailer/phpmailer
+安装
+composer require phpmailer/phpmailer
+
+使用
+
+$mail = new PHPMailer(true);// Passing `true` enables exceptions
+        try {
+            $mail             = new PHPMailer();
+            /*服务器相关信息*/
+            $mail->IsSMTP();   //使用smtp方式发生邮件                     
+            $mail->SMTPAuth   = true; //使用用户信息认证              
+            $mail->Host       = 'smtp.163.com';//设置发件箱的smtp邮件服务器地址   	   
+            $mail->Username   = 'l19517863';//用户名  		
+            $mail->Password   = 'secret';//密码 此密码时第三方的客户端密码
+            /*内容信息*/
+            $mail->IsHTML(true);
+            $mail->CharSet    ="UTF-8";			
+            $mail->From       = 'l19517863@163.com';	//发件箱 		
+            $mail->FromName   ="postmaster";	//发件人的昵称
+            $mail->Subject    = '您正在使用邮箱验证'; //主题
+            $code = isset($_GET['code']) ? $_GET['code'] : 1234;
+            $mail->MsgHTML("【sns系统邮件】你的验证码是{$code},打死也不能告诉别人哦！");//具体邮件的正文
+            // $mail->AddAddress('785591860@qq.com');  //给指定的用户发送邮件
+            $mail->AddAddress('2603757946@qq.com');  //给指定的用户发送邮件
+            // $mail->AddAttachment("test.png"); //追加附件2018年3月24日
+            $res = $mail->Send();
+            var_dump($res);
+            echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+        }
+
+
+
+
+
+...
+PS F:\QuanZhan\wwwroot\sns> composer require phpmailer/phpmailer
+Using version ^6.0 for phpmailer/phpmailer
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing phpmailer/phpmailer (v6.0.5): Downloading (100%)
+phpmailer/phpmailer suggests installing league/oauth2-google (Needed for Google XOAUTH2 authentication)
+phpmailer/phpmailer suggests installing hayageek/oauth2-yahoo (Needed for Yahoo XOAUTH2 authentication)
+phpmailer/phpmailer suggests installing stevenmaguire/oauth2-microsoft (Needed for Microsoft XOAUTH2 authentication)
+Writing lock file
+Generating optimized autoload files
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover
+Discovered Package: fideloper/proxy
+Discovered Package: intervention/image
+Discovered Package: laravel/tinker
+Discovered Package: mews/purifier
+Discovered Package: nunomaduro/collision
+Package manifest generated successfully.
+...
+
+

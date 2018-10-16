@@ -1,0 +1,56 @@
+一下命令 都在 项目的根目录 执行(artisan 文件同级目录)
+
+1.创建 控制器
+
+php aritsan make:controller TestController // 到\app\Http\Controllers
+
+2.创建 模型
+
+php artisan make:model Model/test //到 \app\Models\Blog.php
+
+php artisan make:model Model/test -m  // 建模 加 建表迁移文件
+
+3.生成迁移文件
+
+php artisan make:migration create_tests_table --create='tests' |  //建表 迁移文件    
+
+php artisan make:migration add_tests_table --table='tests'  改表 (加字段)
+
+php artisan migrate   执行迁移
+
+4.迁移文件的 编写
+
+常见建表 字段
+
+//白名单
+protected $fillable = ['name', 'email', 'password',];
+
+public $timestamps=false;  不需要或没有 时间 设置 false
+$table->integer
+$table->increments('id');
+ $table->string('title')->commnent('标题');
+$table->longText('content')->commnet('内容');
+$table->unsignedInteger('display')->commnent('浏览量')->default(0);
+$table->index('blog_id','user_id');//联合索引
+$table->enum('accessable',['public', 'protected','private'])->default('public')->commnent('访问权限');
+//
+$table->unsignedInteger('user_id')->index()->comment('用户(作者)ID索引');
+$table->unsignedInteger('zan')->commnent('点赞人数')->default(0);
+$table->timestamps();
+$table->engine='innodb'; // 设置表引擎
+
+->nullable() // 可为空
+->increments   //设置 主键字段
+->string  // varchar 类型 字段
+->commnent //设置 注释
+->default //设置 默认值
+->index // 设置 普通 索引
+
+详细资料 直通飞机 https://laravel.com/docs/5.6/migrations#creating-columns
+
+
+
+
+
+
+

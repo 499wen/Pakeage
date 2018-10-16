@@ -1,0 +1,35 @@
+1.
+
+ls : 查看文件/文件夹
+	-a | -l | -al //  所有文件 ，详细信息 ，所有文件详细信息
+
+2.
+
+mv 指令移动目录。
+	存在目录 则移动 不存在 则改名
+
+3.clear 清除屏幕上的内容
+
+4.
+exit 退出登录状态
+
+5.
+reboot 重启
+
+6.
+shutdown -h now // 马上关机
+
+7.
+
+tar zcvf *.tar.gz filename  打包压缩
+
+8			
+tar zxvf *.tar.gz 解压解包
+
+9
+
+touch 指令创建文件。
+
+10
+
+cat : 查看 文件

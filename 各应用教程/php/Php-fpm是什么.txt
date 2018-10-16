@@ -1,0 +1,23 @@
+Php-fpm是什么
+1、cgi、fast-cgi协议
+cgi的历史
+早期的webserver只处理html等静态文件，但是随着技术的发展，出现了像php等动态语言。
+
+webserver处理不了了，怎么办呢？那就交给php解释器来处理吧！
+交给php解释器处理很好，但是，php解释器如何与webserver进行通信呢？
+
+为了解决不同的语言解释器(如php、python解释器)与webserver的通信，于是出现了cgi协议。只要你按照cgi协议去编写程序，就能实现语言解释器与webwerver的通信。如php-cgi程序。
+
+fast-cgi的改进
+有了cgi协议，解决了php解释器与webserver通信的问题，webserver终于可以处理动态语言了。但是，webserver每收到一个请求，都会去fork一个cgi进程，请求结束再kill掉这个进程。这样有10000个请求，就需要fork、kill php-cgi进程10000次。
+
+有没有发现很浪费资源？
+
+于是，出现了cgi的改良版本，fast-cgi。fast-cgi每次处理完请求后，不会kill掉这个进程，而是保留这个进程，使这个进程可以一次处理多个请求。这样每次就不用重新fork一个进程了，大大提高了效率。
+2、php-fpm是什么
+php-fpm即php-Fastcgi Process Manager.
+
+php-fpm是 FastCGI 的实现，并提供了进程管理的功能。
+
+进程包含 master 进程和 worker 进程两种进程。
+master 进程只有一个，负责监听端口，接收来自 Web Server 的请求，而 worker 进程则一般有多个(具体数量根据实际需要配置)，每个进程内部都嵌入了一个 PHP 解释器，是 PHP 代码真正执行的地方。

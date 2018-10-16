@@ -1,0 +1,24 @@
+Vue 基础
+
+1. 下载Vue.js
+
+2. 页面引入js 
+
+3. 重要！重要！重要！  Vue 数据驱动页面
+
+4. 定义 获取 获取  通过 模板标签 渲染 到页面
+
+5. 购物车案例
+
+
+获取数据
+
+钩子函数，一般在创建 挂在 时 Ajax 获取
+
+
+推荐起步
+https://vue.docschina.org/
+中国官网
+https://cn.vuejs.org/v2/guide/
+其他
+https://docschina.org/

@@ -1,0 +1,6 @@
+
+软件源
+1.https://blog.csdn.net/qq_16885135/article/details/79747045
+清华源
+2.https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
+php

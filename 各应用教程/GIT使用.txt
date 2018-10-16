@@ -1,0 +1,182 @@
+﻿http://www.runoob.com/w3cnote/git-guide.html
+http://www.runoob.com/w3cnote/git-five-minutes-tutorial.html
+在前面的章节中，我们为主机安装好了 Git。虚拟机 Homestead 中 Git 也是作为默认安装的软件。接下来大部分的 Git 操作都会发生在 Homestead 虚拟机中，因此我们需要先对其进行设置。
+
+首先我们对 Git 进行用户名和邮箱进行设置，请参照下面格式，替换为你自己常用的用户名和邮箱来完成设置：
+首次 初始化 
+对GIT 进行 全局设置
+$ git config --global user.name "Your Name"
+$ git config --global user.email your@example.com
+$ git config --global push.default simple
+
+
+
+SSH
+
+接下来我们来生成 SSH Key，开始之前，我们先使用以下命令来检查主机上是否已经生成过 SSH Key：
+
+> ls -al ~/.ssh
+
+否则使用以下方法来生成 SSH Key，请将 your_email@example.com 替换为你的邮箱：
+
+> ssh-keygen -t rsa -C "your_email@example.com"
+
+然后一直回车
+
+ls -al ~/.ssh
+
+        git add     git commit 
+
+工作区 => 缓存区 => 仓库
+
+1. 初始化工作区
+
+git init 
+
+2.  添加到缓存区
+
+git add a.txt // 添加单个文件索引 （添加到缓存区）
+git add . // 添加所有
+
+
+//3.
+
+git commit -m '提一次提交' => git commit -m. 不想写消息 -m.
+
+git commit . -m.  =>  git add -a && git commit -m.
+
+// 远程
+git pull 拉取
+git push 推送
+
+
+git 分支
+
+Git鼓励大量使用分支：
+
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>
+
+创建+切换分支：git checkout -b <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+
+删除远程分支 git push -d origin part2
+
+##丢弃你本地的所有改动与提交，可以到服务器上获取最新的
+git fetch origin
+git reset --hard origin/master
+
+
+流程，
+1. 把主分支 更新到最新   (切记)
+
+2. 从主分支 拉取分支 
+3. 在分支上 写代码
+4. 写完后 切换到 主分支 更新到 最新  (切记)
+5. 把分支 合并到 主分支 （解决版本冲突 可能产生）
+6. 推送远程
+
+
+
+
+
+
+1. 流程
+
+从服务器 到 本地
+
+1.
+建仓库
+
+2. 克隆 到本地
+
+git clone url 本地路径   // 本地文件夹 名 可以 与 git 不同
+
+写代码基本用法 -----
+git status  检测工作区 与 本地仓库 的更改
+
+git add .   到缓存区
+git commit -m '提示'  // 到本地仓库
+
+git commit . -m 'awefr'  到本地仓库
+
+git push  // 推送到远程
+
+-------
+
+协作开发 
+
+添加 
+协作者
+
+git clone 
+
+
+git pull
+
+
+
+从本地到 服务器
+
+
+GIT  钩子 自动部署
+
+自动部署原理
+
+1. 本地执行 git push
+
+2. 远程仓库 git  执行一个事件 钩子事件 post 请求 你网站的 钩子文件 hook.php
+
+3. 服务器 hook.php 执行 git pull
+
+自动部署完成
+
+
+git 设置 WebHook 
+
+服务器 编写  hook.php 
+
+------------------   
+
+git remote add origin https://git.coding.net/xxxxxxxxxxxxx/my-project.git
+
+git push -u origin master
+
+echo "# myFrame" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/zhedream/myFrame.git
+git push -u origin master
+
+
+
+
+-----------
+
+git checkout -f // 清除缓存区的修改
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

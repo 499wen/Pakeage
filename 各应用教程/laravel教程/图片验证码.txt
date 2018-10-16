@@ -1,0 +1,32 @@
+composer require gregwar/captcha //验证
+
+使用
+use Gregwar\Captcha\CaptchaBuilder;
+
+$builder = new CaptchaBuilder;  
+$builder->build(); 
+
+
+1.	保存验证码图片到硬盘 
+$builder->save(图片路径); 
+2.	输出二进制图片 
+$builder->output(); 
+3.	生成图片 base64 的字符串 
+$builder->inline()
+
+
+
+
+
+
+使用
+
+'Captcha' => [
+                'required',
+                function($attribute, $value, $fail) use ($Captcha) {
+
+                    if ($value != $Captcha) 
+                        return $fail('验证码错误.上一次的验证码是:'.$Captcha);
+
+                },
+            ],

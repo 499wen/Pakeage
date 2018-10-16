@@ -1,0 +1,8 @@
+
+
+1.
+
+ab -n 10000 -c 200 http://www.my.com/content/2.html
+ab -n 10000 -c 200 'http://www.my.com/article/index?page=5&'
+ab -n 10000 -c 200 'http://dandingkeji.top/'
+ab -n 10000 -c 200 'http://www.zhedream.com/'

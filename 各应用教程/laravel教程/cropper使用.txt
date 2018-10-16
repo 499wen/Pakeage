@@ -1,0 +1,69 @@
+
+引用文件
+<script src="jquery.min.js"></script>
+<link rel="stylesheet" href="cropper.min.css">
+<script src="cropper.min.js"></script>
+
+HTML 基本结构
+
+<div class="img-container">
+	<img id="image" src="/images/face.jpg" alt="Picture">
+</div>
+<div class="docs-preview clearfix">
+	<div class="img-preview preview-lg"></div>
+	<div class="img-preview preview-md"></div>
+	<div class="img-preview preview-sm"></div>
+</div>
+
+JS 代码
+
+<script>
+// 获取图片
+var $image = $('#image');
+// 启动 cropper 插件
+$image.cropper({
+  aspectRatio: 1,         // 缩略图1:1的比例
+  preview:'.img-preview',    // 显示缩略图的框
+  viewMode:3,
+  // 裁切时触发事件
+  crop: function(event) {
+    console.log(event.detail.x);             // 裁切区域左上角x坐标
+    console.log(event.detail.y);             // 裁切区域左上角y坐标
+    console.log(event.detail.width);         // 裁切区域宽高
+    console.log(event.detail.height);        // 裁切区域高度
+  }
+});
+</script>
+
+CSS 样式
+
+<style>
+.img-container {
+    width: 300px;
+    height: 300px;
+    float:left;
+}
+.img-preview {
+  float: left;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.preview-lg {
+  width: 240px;
+  height: 240px;
+}
+
+.preview-md {
+  width: 80px;
+  height: 80px;
+}
+
+.preview-sm {
+  width: 35px;
+  height: 35px;
+}
+    </style>
+
+
+

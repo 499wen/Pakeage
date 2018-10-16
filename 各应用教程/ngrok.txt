@@ -1,0 +1,38 @@
++------------------------------------------------------------+
+|         Intro: http://koolshare.cn/forum-72-1.html         |
++------------------------------------------------------------+
+
+Install Ngrok completed! enjoy it.
+=========================================================================
+On key install Ngrok 4.4 for Debian/Ubuntu/CentOS Linux Server
+=========================================================================
+
+For more information please visit http://clang.cn/
+
+ngrok status manage: /etc/init.d/ngrokd {start|stop|restart|config|adduser|info}
+Your Domain: ngrok.zhedream.com
+Ngrok password: 123123
+http_port: 80
+https_port: 443
+remote_port: 4443
+Config file:   /usr/local/ngrok/.ngrok_config.sh
+
+Starting ngrokd (via systemctl):  [  OK  ]
+=========================================================================
+
+
+vi /usr/local/ngrok/.ngrok_config.sh
+
+#!/bin/bash
+# -------------config START-------------
+dns="ngrok.zhedream.com"
+pass="123123"
+http_port=80
+https_port=443
+remote_port=4443
+srtCRT=server.crt
+strKey=server.key
+loglevel="INFO"
+SingleUser="y"
+# -------------config END-------------
+

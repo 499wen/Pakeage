@@ -1,0 +1,60 @@
+
+
+数据填充
+1.
+生成填充器
+可以编写 逻辑代码
+php artisan make:seeder UsersTableSeeder
+
+
+
+...
+
+public function run()
+    {
+        factory(App\Models\User::class)->times(10)->create(); //create()表示插入数据库中
+        //factory(Good::class)->times(10)->make(); //make()表示只生成对象,不插入库表中
+
+    }
+...
+
+2.
+生成模型工厂  需要模型 model
+用于生成数据，类似 mockjs
+php artisan make:factory UserFactory --model=Models\User
+
+
+...
+
+$factory->define(App\Models\User::class, function (Faker $faker) {
+    // $faker = Faker\Factory::create('zh_CN');
+    return [
+        'uname' => $faker->name,
+        'tname' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+        'passw' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'sex' => $faker->numberBetween($min = 0, $max = 1),
+        'head'=> '123',
+        'birthday'=>strtotime($faker->date($format ='‘Y-m-d', $max = 'now')),
+        'email'=>$faker->unique()->safeEmail,
+    ];
+});
+
+...
+
+php artisan db:seed --class=ArticlesTableSeeder
+php artisan db:seed 所有  call DatabaseSeeder.php
+
+配置：
+https://blog.csdn.net/meitesiluyuan/article/details/74924237
+config\app.php
+
+'faker_locale' => 'zh_CN',
+
+
+link:
+
+
+http://www.mamicode.com/info-detail-1811125.html
+https://blog.csdn.net/rain_while/article/details/60764741
+https://github.com/fzaninotto/Faker#fakerprovideren_ustext

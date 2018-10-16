@@ -1,0 +1,36 @@
+//图片处理
+https://packagist.org/packages/intervention/image
+//安装
+composer require intervention/image
+//配置config/app.php 
+1.	注册类到 $providers 数组 
+Intervention\Image\ImageServiceProvider::class
+2.	在 $alias 数组中定义类别名 
+ 
+'Image'=> Intervention\Image\Facades\Image::class
+
+使用
+use Image;
+
+Code Examples
+http://image.intervention.io/use/basics
+
+
+
+// open an image file
+$img = Image::make('public/foo.jpg'); //打开一张图片
+
+// resize image instance
+$img->resize(320, 240);
+
+$img->resize(null,高,function($cons){ 
+    $cons->aspectRatio(); 
+}); 
+
+$img->crop(宽、高、x坐标、y坐标);	裁切图片
+// insert a watermark
+$img->insert('public/watermark.png');
+
+// save image in desired format
+$img->save('public/bar.jpg');
+

@@ -1,0 +1,28 @@
+https://www.cnblogs.com/zeopean/p/flush.html
+
+
+1.	引入Cache类
+use Illuminate\Support\Facades\Cache;
+
+2.	获取 Cache 数据
+Cache::get('键');
+
+3.	缓存数据
+
+Cache::put('名称','值',缓存时间);   // 单位：分钟
+
+Cache::add('key2','val2',20);//若key2不存在，则添加成功 否则，添加失败
+
+Cache::forever('key3','val3');//永久保存对象到缓存
+
+Cache::has('key1');//判断是否存在
+
+Cache::forget('key1');//删除缓存
+
+$data = Cache::pull('key1');//取值后删除
+
+4.	获取并缓存数据
+有时我们需要从缓存中获取数据，当没有数据时从数据库中获取，我们可以这样实现：
+$value = Cache::remember('users', $minutes, function () {
+    return DB::table('users')->get();
+});

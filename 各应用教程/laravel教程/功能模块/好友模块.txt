@@ -1,0 +1,76 @@
+
+1.建模 迁移文件
+
+php artisan make:model Models/Relation -m
+
+
+
+2. 模型 修改  迁移文件
+
+时间字段 | 白名单
+
+迁移字段
+user_id 关注 user2_id
+
+php artisan make:request RelationRequest //验证
+
+
+php artisan migrate   执行迁移
+
+3.业务逻辑 判断好友关系
+
+我(单前用户)和他的 关系 
+
+// 未登录
+return 'no'
+//
+
+
+$isHisFans = select * from follow where user_id = uid and user2_id = user_id
+
+$isMyFans = select * from follow where user_id = user_id and user2_id =  uid
+
+// 判断关系
+if($isHisFans){
+
+	if($isMyFans){
+		return 'hy';
+	}
+
+	return 'gz';
+
+}else if($isMyFans){
+
+	return 'fs'
+}else{
+
+	return 'no';
+}
+
+3.控制器
+
+php artisan make:controller RelationController
+
+
+
+
+4.操作
+
+关注 取关 ok
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

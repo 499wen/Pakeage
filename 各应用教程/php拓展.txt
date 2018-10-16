@@ -1,0 +1,16 @@
+
+http://pecl.php.net/
+
+phpinfo()
+
+1.查看PHP版本
+PHP Version
+
+2.查看系统 位数
+Architecture
+
+3. NTS/TS 查看
+Zend Extension Build
+
+2. php.ini 位置
+Loaded Configuration File

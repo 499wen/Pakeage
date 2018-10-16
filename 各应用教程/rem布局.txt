@@ -1,0 +1,20 @@
+引入
+flexible_css.js
+flexible.js   
+
+
+事实上 flexible.js 做了下面三件事：
+
+动态改写标签
+给<html>元素添加data-dpr属性，并且动态改写data-dpr的值
+给<html>元素添加font-size属性，并且动态改写font-size的值
+
+如此一来，页面中的元素，都可以通过rem单位来设置。他们会根据html元素的font-size值做相应的计算，从而实现屏幕的适配效果。
+
+使用
+88 设计图 切图的高  64  640的设计图
+height: 88/64rem;
+
+设计图 32 号的字  64 代表 640的设计图  例如： 1125的设计图这  112.5
+font-size: 32/64rem;
+

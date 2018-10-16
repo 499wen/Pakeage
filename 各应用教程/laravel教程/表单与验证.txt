@@ -1,0 +1,53 @@
+use Illuminate\Http\Request; 
+
+
+ //Request $req 只接收 数据 不会 验证
+
+php artisan make:request RegistRequest
+
+//BlogRequest $req  会返回到提交页错误
+
+        // 可重定向 页面
+        $validator = Validator::make($req->all(),[
+            'title'=>'required | min:5 | max:20',
+            'content'=>'required | min:5',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/error')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+
+
+
+@if($errors->any())
+		<ul>
+			@foreach($errors->all() as $e)
+			<li>{{$e}}</li>
+			@endforeach
+		</ul>
+		@endif
+
+一些规则
+
+'photo' => 'mimes:jpeg,bmp,png'
+
+自定义函数验证RegistRequest
+
+'Captcha' => [
+                'required',
+                function($attribute, $value, $fail) use ($Captcha) {
+
+                    if ($value != $Captcha) 
+                        return $fail('验证码错误.上一次的验证码是:'.$Captcha);
+
+                },
+            ],
+
+去除历史提示
+autocomplete="off"
+
+
+

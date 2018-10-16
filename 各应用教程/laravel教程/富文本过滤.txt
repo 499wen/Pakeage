@@ -1,0 +1,23 @@
+富文本过滤
+
+https://packagist.org/packages/mews/purifier
+
+composer require mews/purifier //
+
+
+发布配置文件 
+php artisan vendor:publish --provider="Mews\Purifier\PurifierServiceProvider"
+
+修改配置
+config/purifier.php 
+
+使用
+
+// return '<script>alert(1)</script>';
+return clean('<script>alert(1)</script>');
+
+
+Purifier::clean
+
+跟多
+laravel讲义 08

@@ -1,0 +1,25 @@
+https://phpartisan.cn/news/76.html
+
+1.
+所有laravel版本都可以在composer.json中的autoload下增加如下代码加载自动文件
+
+2.
+
+"autoload": {
+    "classmap": [
+        "database"
+    ],
+    "psr-4": {
+        "App\\": "app/"
+    },
+    "files": [
+        "app/helpers/functions.php"
+    ]
+},
+
+
+3.
+
+然后执行composer命令让其自动加载：
+
+composer dump-auto
