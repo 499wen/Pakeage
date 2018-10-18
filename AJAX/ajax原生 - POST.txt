@@ -1,0 +1,25 @@
+        创建异步对象  
+        var ajax = new XMLHttpRequest();
+
+        //2.创建http请求,并设置请求地址
+        ajax.open('post', url , true);
+
+        //post方式传递数据是模仿form表单传递给服务器的,要设置header头协议
+        ajax.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+        //3.发送请求(get--null    post--数据)  info -> 参数
+        var info = 'username=he';	//将请求信息组成请求字符串
+        ajax.send(info);
+
+        //4.给AJAX设置事件(这里最多感知4[1-4]个状态)
+        ajax.onreadystatechange = function () {
+
+        //5.获取响应
+        //responseText		以字符串的形式接收服务器返回的信息
+        //console.log(ajax.readyState);
+        if (ajax.readyState == 4 && ajax.status == 200) {
+              var msg = ajax.responseText;
+              console.log(msg);
+              //alert(msg);
+        }
+        }

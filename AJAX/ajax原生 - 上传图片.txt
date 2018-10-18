@@ -1,0 +1,7 @@
+一定要调用
+var form = new formData()  对象  
+
+将提交的数据放进去
+eg: form.append("author", author);
+
+最后将form作为参数 放入send(）中

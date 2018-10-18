@@ -1,0 +1,36 @@
+/**
+        $.ajax 类
+ ajax(obj)  类似jquery  ajax
+    */
+    function ajax(obj) {
+ 
+        var ajax = new XMLHttpRequest();
+
+        ajax.open(obj.type, obj.url, true);
+
+        if (obj.type == "get") {
+            ajax.send();
+        } else {
+            ajax.send(obj.data);
+        }
+
+        ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                //步骤五 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
+                // 　　　　console.log(ajax.responseText);//输入相应的内容
+                // 将服务器传回来的 string 格式转化为 JSON 格式var data = ;
+               if(obj.dataType == 'json'){
+                   var data = eval('(' + ajax.responseText + ')')
+                   obj.success(data)
+                   
+               }else {
+                   return ajax.responseText
+               }
+
+            }else{
+                if(obj.error != null){
+                    obj.error(data);
+                }
+            }
+        }
+    }
