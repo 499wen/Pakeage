@@ -11,6 +11,8 @@
         if (obj.type == "get") {
             ajax.send();
         } else {
+            // 需要设置请求报文
+            ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             ajax.send(obj.data);
         }
 
@@ -34,3 +36,9 @@
             }
         }
     }
+
+// ajax 提交post表单到服务端
+var _token = document.querySelector("input[type='hidden']");
+// console.log(_token);
+var fromData = new FormData();
+fromData.append('_token',_token.value);
